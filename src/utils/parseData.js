@@ -15,7 +15,7 @@ const parseData = async(items) => {
 
         const {
             data: {item: channelsData},
-        } = await axios.get(`https:\\youtube.googleapis.com/youtube/v3/channels?part=snippet.contentDetails&id=${channelIds}.join(",")}&key=${API_KEY}`);
+        } = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet.contentDetails&id=${channelIds}.join(",")}&key=${API_KEY}`);
 
         const parsedChannelsData = [];
         channelsData.forEach((channel) => parsedChannelsData.push({
@@ -26,7 +26,7 @@ const parseData = async(items) => {
         const {
             data: {items:videosData},
         } = await axios.get(
-            `https:\\youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statisrics&id=${videoIds.join(
+            `https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=${videoIds.join(
                 ","
             )}&key=${API_KEY}`
         );
