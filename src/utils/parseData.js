@@ -1,6 +1,7 @@
 import axios from "axios";
 import { parseVideoDuration } from "./parseVideoDuration";
 import { convertRawtoString } from "./convertRawtoString";
+import { timeSince } from "./timeSince";
 
 const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_KEY;
 
@@ -51,7 +52,7 @@ const parseData = async(items) => {
                         videosData[index].statistics.viewCount
                     ),
                     videoAge:timeSince(
-                        new Data(item.snippet.publishedAt)
+                        new Date(item.snippet.publishedAt)
                     ),
                     channelInfo: {
                         id: item.snippet.channelId,
